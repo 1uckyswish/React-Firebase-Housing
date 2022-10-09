@@ -17,7 +17,16 @@ function ForgotPassword() {
       await sendPasswordResetEmail(auth, email);
       toast.success('Email was Sent');
     } catch (error) {
-      toast.error('Could Not Send Rest Email')
+      toast.error('Could Not Send Rest Email', {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+      theme: "colored",
+      });
     }
   };
 

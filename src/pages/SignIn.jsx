@@ -27,17 +27,29 @@ const onSubmit = async (e) => {
   try {
   const auth = getAuth();
   const userCredential = await signInWithEmailAndPassword(auth, email, password)
-   toast.success("Welcome Back",{
-      autoClose: 1000,
-      theme: "colored"
-    })
+   toast.success("Welcome Back", {
+    position: "top-right",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
+    });
   if(userCredential.user){
     navigate('/');
   };
   } catch (error) {
-    toast.error('Bad User Credentials',{
-      autoClose: 1000,
-      theme: "colored"
+    toast.error('Bad User Credentials', {
+    position: "top-right",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
     });
   }
 }

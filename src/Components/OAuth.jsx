@@ -24,12 +24,22 @@ function OAuth() {
                 await setDoc(doc(db, 'users', user.uid), {
                     name: user.displayName,
                     email:user.email,
+                    password: 'N/A',
                     timestamp: serverTimestamp(),
                 });
             }
             navigate('/');
         } catch (error) {
-            toast.error("Could Not Authorize With Google");
+            toast.error("Could Not Authorize With Google", {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "colored",
+            });
         }
     };
 

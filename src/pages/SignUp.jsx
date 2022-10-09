@@ -31,10 +31,16 @@ const onSubmit = async (e) => {
     const auth = getAuth();
     //* get auth
     const userCredential = await createUserWithEmailAndPassword(auth,email,password);
-    toast.success("Welcome",{
-      autoClose: 1000,
-      theme: "colored"
-    })
+    toast.success("Welcome", {
+    position: "top-right",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
+    });
     const user = userCredential.user;
     updateProfile(auth.currentUser, {
       displayName: name
@@ -50,10 +56,16 @@ const onSubmit = async (e) => {
 
     navigate('/');
   } catch (error) {
-    toast.error("Error With Registration",{
-      autoClose: 1000,
-      theme: "colored"
-    })
+    toast.error("Error With Registration", {
+    position: "top-right",
+    autoClose: 1500,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: false,
+    progress: undefined,
+    theme: "colored",
+    });
     console.error(error);
   }
 }
