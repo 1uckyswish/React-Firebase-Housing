@@ -6,6 +6,7 @@ import { setDoc, doc, serverTimestamp } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import Arrow from "../assets/svg/keyboardArrowRightIcon.svg";
+import OAuth from "../Components/OAuth";
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false);
@@ -59,31 +60,65 @@ const onSubmit = async (e) => {
 
   return (
     <>
-     <div className="pageContainer">
-      <header>
-        <p className="pageHeader">
-          Welcome Back!
-        </p>
+      <div className='pageContainer'>
+        <header>
+          <p className='pageHeader'>Welcome Back!</p>
+        </header>
+
         <form onSubmit={onSubmit}>
-           <input type="text" className="nameInput" placeholder="Name" id="name" value={name} onChange={onChange}/>
-          <input type="email" className="emailInput" placeholder="Email" id="email" value={email} onChange={onChange}/>
-          <div className="passwordInputDiv">
-            <input type={showPassword? "text" : "password"} className="passwordInput" placeholder="Password" id="password" value={password} onChange={onChange}/>
-            <img src={visibilityIcon} className="showPassword" alt="show Password" onClick={()=> setShowPassword(!showPassword)}/>
+          <input
+            type='text'
+            className='nameInput'
+            placeholder='Name'
+            id='name'
+            value={name}
+            onChange={onChange}
+          />
+          <input
+            type='email'
+            className='emailInput'
+            placeholder='Email'
+            id='email'
+            value={email}
+            onChange={onChange}
+          />
+
+          <div className='passwordInputDiv'>
+            <input
+              type={showPassword ? 'text' : 'password'}
+              className='passwordInput'
+              placeholder='Password'
+              id='password'
+              value={password}
+              onChange={onChange}
+            />
+
+            <img
+              src={visibilityIcon}
+              alt='show password'
+              className='showPassword'
+              onClick={() => setShowPassword((prevState) => !prevState)}
+            />
           </div>
-          <Link to='/forgot-password' className="forgotPasswordLink">Forgot Password?</Link>
-          <div className="signUpBar">
-            <p className="signUpText">
-              Sign Up
-            </p>
-            <button className="signUpButton">
-              <img src={Arrow} alt="sign in button"/>
+
+          <Link to='/forgot-password' className='forgotPasswordLink'>
+            Forgot Password?
+          </Link>
+
+          <div className='signUpBar'>
+            <p className='signUpText'>Sign Up</p>
+            <button className='signUpButton'>
+             <img src={Arrow} alt="sign in button"/>
             </button>
           </div>
         </form>
-        <Link to="/sign-in" className="registerLink">Sign In Instead</Link>
-      </header>
-     </div>
+
+        <OAuth />
+
+        <Link to='/sign-in' className='registerLink'>
+          Sign In Instead
+        </Link>
+      </div>
     </>
   )
 }

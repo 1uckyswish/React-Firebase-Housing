@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import Arrow from "../assets/svg/keyboardArrowRightIcon.svg";
+import OAuth from "../Components/OAuth";
 
 function SignIn() {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,6 +65,7 @@ const onSubmit = async (e) => {
             </button>
           </div>
         </form>
+        <OAuth/>
         <Link to="/sign-up" className="registerLink">Sign Up Instead</Link>
       </header>
      </div>

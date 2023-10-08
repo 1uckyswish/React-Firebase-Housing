@@ -218,9 +218,16 @@ button {
   text-align: right;
 }
 
-.signInBar,
+.signInBar {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: inherit;
+}
+
 .signUpBar {
-  margin-top: 3rem;
+  margin-bottom: -4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -289,7 +296,7 @@ button {
 }
 
 .registerLink {
-  margin-top: 4rem;
+  margin-top: 1rem;
   color: #00cc66;
   font-weight: 600;
   text-align: center;
