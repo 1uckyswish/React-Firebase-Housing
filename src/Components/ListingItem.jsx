@@ -4,7 +4,7 @@ import DeleteIcon from "../assets/svg/deleteIcon.svg";
 import bedIcon from "../assets/svg/bedIcon.svg";
 import bathIcon from "../assets/svg/bathtubIcon.svg";
 
-function ListingItem({ listing, id, imageURLS, onDelete }) {
+function ListingItem({ listing, id, imgUrls, onDelete }) {
   return (
     <li className="categoryListing">
       <Link
@@ -12,7 +12,7 @@ function ListingItem({ listing, id, imageURLS, onDelete }) {
         className="categoryListingLink"
       >
         <img
-          src={listing.imageURLS[0]}
+          src={listing.imgUrls[0]}
           alt={listing.name}
           className="categoryListingImg"
         />
