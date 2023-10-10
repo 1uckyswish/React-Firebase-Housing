@@ -100,7 +100,8 @@ function CreateListing() {
         console.log(data)
         geoLocation.lat = data?.results[0]?.geometry?.location.lat ?? 0;
         geoLocation.lng = data?.results[0]?.geometry?.location.lng ?? 0;
-        theLocation = data.status === 'ZERO_RESULTS' ? undefined : data.results[0].formatted_address;
+        theLocation  =
+        data.status === 'ZERO_RESULTS' ? undefined : data.results[0]?.formatted_address
 
         if(theLocation === undefined || theLocation.includes('undefined')){
             setLoading(false);
