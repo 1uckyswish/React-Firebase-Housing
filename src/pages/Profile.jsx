@@ -15,7 +15,7 @@ import {
 import { toast } from "react-toastify";
 import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
 import homeIcon from "../assets/svg/homeIcon.svg";
-import ListingItem from "../components/ListingItem";
+import ListingItem from "../Components/ListingItem";
 
 const Profile = () => {
   const auth = getAuth();
