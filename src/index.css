@@ -826,3 +826,9 @@ button {
   font-size: 0.8rem;
   opacity: 0.75;
 }
+
+
+.wrapSwiper {
+    width: 100%;
+    padding: 0;
+}

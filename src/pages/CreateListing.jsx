@@ -125,7 +125,6 @@ function CreateListing() {
     }else{
         geoLocation.lat = latitude;
         geoLocation.lon = longitude;
-        theLocation = address
     }
 
     //store image in firebase 
@@ -191,10 +190,10 @@ function CreateListing() {
       geoLocation,
       timestamp: serverTimestamp(),
     };
-
+    formDataCopy.location = address
     delete formDataCopy.images
     delete formDataCopy.address
-    theLocation && (formData.location = theLocation);
+    // theLocation && (formData.location = theLocation);
 
     !formDataCopy.offer && delete formDataCopy.discountedPrice
 
