@@ -11,7 +11,7 @@ import {
 import { db } from '../firebase.config'
 import { toast } from 'react-toastify'
 import Spinner from "../Components/Spinner"
-import ListingItem from '../components/ListingItem'
+import ListingItem from '../Components/ListingItem'
 
 function Offers() {
   const [listings, setListings] = useState(null)
