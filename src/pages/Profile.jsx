@@ -88,16 +88,21 @@ const Profile = () => {
     }));
   };
 
-  const onDelete = async (listingId) => {
-    if (window.confirm("Delete this listing?")) {
+const onDelete = async (listingId) => {
+  if (window.confirm("Delete this listing?")) {
+    try {
       await deleteDoc(doc(db, "listings", listingId));
-      const updatedListings = listings.filter(
-        (listing) => listing.id !== listingId
+      setListings(prevListings =>
+        prevListings.filter(listing => listing.id !== listingId)
       );
-      setListings(updatedListings);
       toast.success("Deleted listing successfully.");
+    } catch (error) {
+      console.error("Error deleting listing:", error);
+      toast.error("Failed to delete listing.");
     }
-  };
+  }
+};
+
 
   console.log(listings)
   return (
