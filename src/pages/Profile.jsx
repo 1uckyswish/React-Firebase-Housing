@@ -15,7 +15,7 @@ import {
 import { toast } from "react-toastify";
 import arrowRight from "../assets/svg/keyboardArrowRightIcon.svg";
 import homeIcon from "../assets/svg/homeIcon.svg";
-import ListingItem from '../Components/ListingItem';
+import ListingItem from "../components/ListingItem";
 
 const Profile = () => {
   const auth = getAuth();
@@ -88,21 +88,18 @@ const Profile = () => {
     }));
   };
 
-const onDelete = async (listingId) => {
-  if (window.confirm("Delete this listing?")) {
-    try {
+  const onDelete = async (listingId) => {
+    if (window.confirm("Delete this listing?")) {
       await deleteDoc(doc(db, "listings", listingId));
-      setListings(prevListings =>
-        prevListings.filter(listing => listing.id !== listingId)
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingId
       );
+      setListings(updatedListings);
       toast.success("Deleted listing successfully.");
-    } catch (error) {
-      console.error("Error deleting listing:", error);
-      toast.error("Failed to delete listing.");
     }
-  }
-};
+  };
 
+    const onEdit = (listingId) => navigate(`/edit-listing/${listingId}`)
 
   console.log(listings)
   return (
@@ -165,6 +162,7 @@ const onDelete = async (listingId) => {
                   listing={listing.data}
                   id={listing.id}
                   onDelete={() => onDelete(listing.id)}
+                   onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
